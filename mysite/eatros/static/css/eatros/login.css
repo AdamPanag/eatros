@@ -1,0 +1,60 @@
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box {
+    margin-top: 70px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff612463;
+    border-radius: 35px;
+}
+
+.toggle-button {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    font-weight: bold;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.whole-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-inputs {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.doctor-form {
+    display: none;
+}

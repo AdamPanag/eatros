@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+    <title>Eatros</title>
+
+    <link rel="stylesheet" href="{% static 'css/eatros/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/eatros/navbar.css' %}">
+</head>
+<body>
+
+    {% include "eatros/navbar.html" %}
+
+    <div>
+        <form action="/search-doctors/" method="POST">
+            <input list="specialties" type="text" name="specialty" placeholder="Doctor's specialty"/>
+                <datalist id="specialties">
+                    {% for specialty in specialties %}
+                        <option value="{{ specialty.name }}">
+                    {% endfor %}
+                </datalist>
+                <input list="areas" type="text" name="area" placeholder="Where?"/>
+                <datalist id="areas">
+                    {% for area in areas %}
+                        <option value="{{ area.name }}"></option>
+                    {% endfor %}
+                    
+                </datalist>
+                <input type="submit"></input>
+        </form>
+    </div>
+    
+</body>
+</html>
