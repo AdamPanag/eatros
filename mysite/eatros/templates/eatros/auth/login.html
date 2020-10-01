@@ -37,6 +37,7 @@
                     New here? <a href="register.html">Register</a> 
                 </span>
             </div>
+
             <div class="input-form doctor-form">
                 <form action="" method="POST">
                     <label for="username"><b>Username</b></label>
@@ -50,6 +51,9 @@
     
                 <a href="register.html">Register</a>
             </div>
+            {% for message in messages %}
+                <p class="messages">{{message}}</p>
+            {% endfor %}
         </div>
     </div>
     
