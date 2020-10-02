@@ -16,7 +16,8 @@
     {% include "eatros/navbar.html" %}
 
     <div>
-        <form action="/search-doctors/" method="POST">
+        <form action="search-doctors/" method="POST">
+            {% csrf_token %}
             <input list="specialties" type="text" name="specialty" placeholder="Doctor's specialty"/>
                 <datalist id="specialties">
                     {% for specialty in specialties %}
@@ -28,10 +29,12 @@
                     {% for area in areas %}
                         <option value="{{ area.name }}"></option>
                     {% endfor %}
-                    
                 </datalist>
-                <input type="submit"></input>
+                <button type="submit">Search</button>
         </form>
+        {% for message in messages %}
+            <p class="errors">{{message}}</p>
+        {% endfor %}
     </div>
     
 </body>

@@ -4,18 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Eatros | Login</title>
+    <title>Eatros | Register</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/eatros/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/eatros/text.css' %}">
     <link rel="stylesheet" href="{% static 'css/eatros/login.css' %}">
+
 </head>
 <body>
-    
+
     {% include "eatros/navbar.html" %}
+
     <div class="page">
         <div class="form-box">
             <div class="button-box">
@@ -25,39 +26,23 @@
             </div>
             <div class="whole-form patient-form">
                 <form class="form-inputs" action="" method="POST">
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" name="username" required>
-            
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" name="password" required>
-            
-                    <button type="submit">Login</button>
+                    {% csrf_token %}
+
+                    {% for field in form.visible_fields %}
+                        <div class="input-line">
+                            {{ field.label_tag }}
+                            {{ field }}
+                        </div>
+                    {% endfor %}  
+                    <button type="submit">Register</button>
                 </form>
                 <span>
-                    New here? <a href="register.html">Register</a> 
+                    Already have an account? <a href="patient-login.html">Login</a> 
                 </span>
+                {{form.errors}}
             </div>
-
-            <div class="input-form doctor-form">
-                <form action="" method="POST">
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" name="username" required>
-            
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" name="password" required>
-            
-                    <button type="submit">Login</button>
-                </form>
-    
-                <a href="register.html">Register</a>
-            </div>
-            {% for message in messages %}
-                <p class="messages">{{message}}</p>
-            {% endfor %}
         </div>
     </div>
     
-    
-
 </body>
 </html>

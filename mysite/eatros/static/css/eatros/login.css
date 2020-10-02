@@ -5,7 +5,10 @@
 }
 
 .form-box {
+    margin-top: 40px;
+    margin-bottom: 20px;
     padding: 20px;
+    box-shadow: 0 0 20px 9px rgb(110, 94, 254, .5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,10 +55,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
-
-.doctor-form {
-    display: none;
+    align-items: flex-start;
 }
 
 .messages {
@@ -63,4 +63,12 @@
     border-radius: 10px;
     padding: 15px;
     font-weight: bold;
+}
+
+.errors {
+    background-color: red;
+    border-radius: 10px;
+    padding: 15px;
+    font-weight: bold;
+}
 }

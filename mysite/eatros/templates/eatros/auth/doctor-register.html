@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatros | Register</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/eatros/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/eatros/text.css' %}">
+    <link rel="stylesheet" href="{% static 'css/eatros/login.css' %}">
+
+</head>
+<body>
+
+    {% include "eatros/navbar.html" %}
+
+    <div class="page">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button class="toggle-button">Patient</button>
+                <button class="toggle-button">Doctor</button>
+            </div>
+            <div class="whole-form">
+                <form class="form-inputs" action="" method="POST">
+                    {% csrf_token %}
+
+                    {% for field in form.visible_fields %}
+                        <div class="input-line">
+                            {{ field.label_tag }}
+                            {{ field }}
+                        </div>
+                    {% endfor %}  
+                    <button type="submit">Register</button>
+                </form>
+                <span>
+                    Already have an account? <a href="doctor-login.html">Login</a> 
+                </span>
+                {{form.errors}}
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
