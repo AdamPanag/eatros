@@ -10,10 +10,16 @@ from .models import User
 def index(request):
     areas = Area.objects.all()
     specialties = Specialty.objects.all()
+    if request.user.is_authenticated:
+        logedin = True
+    else:
+        logedin = False
+    
     context = {
         'areas' : areas,
         'specialties' : specialties,
-        'showLoginBtn' : True
+        'showLoginBtn' : True,
+        'logedin' : logedin
     }
 
     return render(request, 'eatros/index.html', context)
@@ -22,7 +28,7 @@ def index(request):
 def search_doctors(request):
     if request.user.is_authenticated:
         context = {
-            'showLoginBtn' : True
+            'logedin' : True
         }
         return render(request, 'eatros/search-doctors.html', context)
     else:
@@ -82,7 +88,6 @@ def patient_register(request):
             
         context = {
             'form':form,
-            'showLoginBtn' : False
         }
         # not logged in and not POST method
         return render(request, 'eatros/auth/patient-register.html', context)
@@ -104,7 +109,11 @@ def doctor_register(request):
             
         context = {
             'form':form,
-            'showLoginBtn' : False
         }
         # not logged in and not POST method
-        return render(request, 'eatros/auth/doctor-register.html', context) 
+        return render(request, 'eatros/auth/doctor-register.html', context)
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('/')

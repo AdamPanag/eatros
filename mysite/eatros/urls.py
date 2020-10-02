@@ -12,4 +12,7 @@ urlpatterns = [
 
     path('auth/patient-register.html', views.patient_register, name='patient-register'),
     path('auth/doctor-register.html', views.doctor_register, name='doctor-register'),
+
+    path('auth/logout.html/', views.logout_user, name='logout-user'),
+
 ]

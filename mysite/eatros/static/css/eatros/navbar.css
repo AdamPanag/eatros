@@ -29,7 +29,7 @@
     grid-gap: 10px;
     list-style: none;
     text-align: center;
-    width: 70vw;
+    width: 60vw;
     justify-content: end;
     margin-left: 2rem;
 }
@@ -109,8 +109,22 @@
     display: block;
   }
   
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.right-side {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 10px;
+    cursor: pointer;
+}
+
+.logout {
+    color: #6cd7f8;
+    font-weight: bold;
+    text-decoration: none;
+}

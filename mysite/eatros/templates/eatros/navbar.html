@@ -3,7 +3,7 @@
     <a class="nav-logo-a-tag" href="/">
         <h1 class="navbar-logo">Eatros<i class="fas fa-user-md"></i></h1>
     </a>
-    <div class="menu-icon" onClick="/">
+    <div class="menu-icon" onClick="">
         <i class='fas fa-times'></i>
     </div>
     <ul class="nav-menu">
@@ -13,15 +13,20 @@
             <a class="nav-links" href="#">Contact us</a>
         </li>
     </ul>
-    {% if showLoginBtn %}
+    {% if not logedin %}
         <div class="dropdown">
             <button class="btn btn--primary btn--medium">
                 Login / Register
             </button>
             <div class="dropdown-content">
-                <a href="auth/patient-login.html">Patient</a>
-                <a href="auth/doctor-login.html">Doctor</a>
+                <a href="http://127.0.0.1:8000/auth/patient-login.html">Patient</a>
+                <a href="http://127.0.0.1:8000/auth/doctor-login.html">Doctor</a>
             </div>
+        </div>
+    {% else %}
+        <div class="right-side">
+            <a class="nav-links">{{user.username}}</a>
+            <a class="logout" href="http://127.0.0.1:8000/auth/logout.html">Logout <i class="fas fa-sign-out-alt"></i></a>
         </div>
     {% endif %}
 </nav>
