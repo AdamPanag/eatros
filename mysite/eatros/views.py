@@ -1,6 +1,6 @@
 from django.contrib.auth import login, logout,authenticate
 from django.shortcuts import redirect, render
-from .models import Area, Specialty
+from .models import Area, Doctor, Specialty
 from django.contrib import messages
 from django.views.generic import CreateView
 from .forms import DoctorSignUpForm, PatientSignUpForm
@@ -27,8 +27,15 @@ def index(request):
 
 def search_doctors(request):
     if request.user.is_authenticated:
+        area = request.POST['area']
+        specialty = request.POST['specialty']
+        doctors = Doctor.objects.filter(specialty=specialty, area=area)
+
         context = {
-            'logedin' : True
+            'logedin' : True,
+            'area' : area,
+            'specialty' : specialty,
+            'doctors' : doctors
         }
         return render(request, 'eatros/search-doctors.html', context)
     else:

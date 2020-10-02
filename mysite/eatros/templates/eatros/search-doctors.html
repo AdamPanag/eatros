@@ -4,16 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Eatros | Doctors</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-
+    
+    <link rel="stylesheet" href="{% static 'css/eatros/search-doctors.css' %}">
     <link rel="stylesheet" href="{% static 'css/eatros/navbar.css' %}">
     <link rel="stylesheet" href="{% static 'css/eatros/text.css' %}">
 </head>
 <body>
 
     {% include "eatros/navbar.html" %}
-    
+    <h2>Searched for {{specialty}} at {{area}}</h2>
+
+    {% for doctor in doctors %}
+        <div class="search-results">
+            <div class="mini-profile">
+                <div class="left-side">
+                    <h2>{{doctor.user.first_name}} {{doctor.user.last_name}}</h2>
+                    <h3>{{doctor.specialty}}</h3>
+                </div>
+                <div class="right-side">
+                    <h3>{{doctor.address}}</h3>
+                    <button>Book now</button>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
 </body>
 </html>
