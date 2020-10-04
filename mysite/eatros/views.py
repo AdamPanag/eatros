@@ -18,7 +18,6 @@ def index(request):
     context = {
         'areas' : areas,
         'specialties' : specialties,
-        'showLoginBtn' : True,
         'logedin' : logedin
     }
 
@@ -29,7 +28,15 @@ def search_doctors(request):
     if request.user.is_authenticated:
         area = request.POST['area']
         specialty = request.POST['specialty']
-        doctors = Doctor.objects.filter(specialty=specialty, area=area)
+
+        if specialty == '' and area != '':
+            doctors = Doctor.objects.filter(area=area)
+        elif area == '' and specialty != '':
+            doctors = Doctor.objects.filter(specialty=specialty)
+        elif specialty == '' and area == '':
+            doctors = Doctor.objects.all()
+        else:
+            doctors = Doctor.objects.filter(specialty=specialty, area=area)
 
         context = {
             'logedin' : True,

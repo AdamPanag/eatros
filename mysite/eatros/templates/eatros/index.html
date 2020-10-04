@@ -8,33 +8,38 @@
 
     <title>Eatros</title>
 
+    <link rel="stylesheet" href="{% static 'css/eatros/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/eatros/text.css' %}">
     <link rel="stylesheet" href="{% static 'css/eatros/navbar.css' %}">
 </head>
 <body>
 
-    {% include "eatros/navbar.html" %}
-
-    <div>
-        <form action="search-doctors/" method="POST">
-            {% csrf_token %}
-            <input list="specialties" type="text" name="specialty" placeholder="Doctor's specialty"/>
-                <datalist id="specialties">
-                    {% for specialty in specialties %}
-                        <option value="{{ specialty.name }}">
-                    {% endfor %}
-                </datalist>
-                <input list="areas" type="text" name="area" placeholder="Where?"/>
-                <datalist id="areas">
-                    {% for area in areas %}
-                        <option value="{{ area.name }}"></option>
-                    {% endfor %}
-                </datalist>
-                <button type="submit">Search</button>
-        </form>
-        {% for message in messages %}
-            <p class="errors">{{message}}</p>
-        {% endfor %}
+    <div class="page">
+        {% include "eatros/navbar.html" %}
+        <div class="form-content">
+            <h1 id="slogan">Find the doctor you need</h1>
+            <form action="search-doctors/" method="POST">
+                {% csrf_token %}
+                <input list="specialties" type="text" name="specialty" placeholder="Doctor's specialty"/>
+                    <datalist id="specialties">
+                        {% for specialty in specialties %}
+                            <option value="{{ specialty.name }}">
+                        {% endfor %}
+                    </datalist>
+                    <input list="areas" type="text" name="area" placeholder="Where?"/>
+                    <datalist id="areas">
+                        {% for area in areas %}
+                            <option value="{{ area.name }}"></option>
+                        {% endfor %}
+                    </datalist>
+                    <button id="search-btn" type="submit">Search</button>
+            </form>
+            {% for message in messages %}
+                <p class="errors">{{message}}</p>
+            {% endfor %}
+        </div>
+        <div></div>
+        <div></div>
     </div>
     
 </body>

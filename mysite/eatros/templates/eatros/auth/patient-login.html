@@ -15,14 +15,14 @@
 </head>
 <body>
     
-    {% include "eatros/navbar.html" %}
     <div class="page">
+        {% include "eatros/navbar.html" %}
         <div class="form-box">
-            <div class="button-box">
+            <!-- <div class="button-box">
                 <div id="btn"></div>
                 <button class="toggle-button">Patient</button>
                 <button class="toggle-button">Doctor</button>
-            </div>
+            </div> -->
             <div class="whole-form patient-form">
                 <form class="form-inputs" action="" method="POST">
                     {% csrf_token %}
@@ -42,9 +42,9 @@
                 <p class="errors">{{message}}</p>
             {% endfor %}
         </div>
+        <div></div>
+        <div></div>
     </div>
     
-    
-
 </body>
 </html>

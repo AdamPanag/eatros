@@ -1,21 +1,13 @@
-.search-results {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mini-profile {
-    width: 40vw;
-    margin-top: 30px;
-    padding: 0 15px;
-    box-shadow: 0 0 10px 5px rgb(110, 94, 254, .3);
+.page {
+    height: 100vh;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 }
 
 .form-content {
     padding: 20px;
-    background-color: rgb(183, 255, 255);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +22,7 @@ input {
 
 #search-btn {
     height: 38px;
-    width: 100px;
+    width: 80px;
     font-size: 0.9rem;
     font-weight: bold;
     color: white;
@@ -45,4 +37,8 @@ input {
     background: white;
     color: #6568f4;
     transition: 250ms;
+}
+
+#slogan {
+    color:rgb(110, 94, 254);
 }

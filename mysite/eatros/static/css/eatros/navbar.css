@@ -1,9 +1,11 @@
 .navbar-items {
     background: linear-gradient(90deg, rgb(110, 94, 254) 0%, rgb(73, 63, 252, 1) 100%);
     height: 80px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    align-self: flex-start;
     font-size: 1.2rem;
 }
 
