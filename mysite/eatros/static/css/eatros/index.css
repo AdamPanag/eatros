@@ -4,10 +4,22 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    background: url("/static/img/eatros/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .form-content {
-    padding: 20px;
+    padding: 40px 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +34,7 @@ input {
 
 #search-btn {
     height: 38px;
-    width: 80px;
+    width: 100px;
     font-size: 0.9rem;
     font-weight: bold;
     color: white;
@@ -40,5 +52,7 @@ input {
 }
 
 #slogan {
+    font-size: 50px;
     color:rgb(110, 94, 254);
+    margin-top: 0px;
 }

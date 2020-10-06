@@ -18,11 +18,8 @@
     <div class="page">
         {% include "eatros/navbar.html" %}
         <div class="form-box">
-            <!-- <div class="button-box">
-                <div id="btn"></div>
-                <button class="toggle-button">Patient</button>
-                <button class="toggle-button">Doctor</button>
-            </div> -->
+            <h1 class="form-logo">Eatros<i class="fas fa-user-md"></i></h1>
+            <h3>Register as a Patient</h3>
             <div class="whole-form patient-form">
                 <form class="form-inputs" action="" method="POST">
                     {% csrf_token %}
@@ -33,7 +30,7 @@
                             {{ field }}
                         </div>
                     {% endfor %}  
-                    <button type="submit">Register</button>
+                    <button id="submit-btn" type="submit">Register</button>
                 </form>
                 <span>
                     Already have an account? <a href="patient-login.html">Login</a> 

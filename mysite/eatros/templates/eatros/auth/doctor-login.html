@@ -18,28 +18,28 @@
     <div class="page">
         {% include "eatros/navbar.html" %}
         <div class="form-box">
-            <!-- <div class="button-box">
-                <div id="btn"></div>
-                <button class="toggle-button">Patient</button>
-                <button class="toggle-button">Doctor</button>
-            </div> -->
+            <h1 class="form-logo">Eatros<i class="fas fa-user-md"></i></h1>
+            <h3>Login as a Doctor</h3>
             <div class="whole-form">
                 <form class="form-inputs" action="" method="POST">
                     {% csrf_token %}
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" name="username" required>
+                    <div class="input-line">
+                        <label for="username"><b>Username</b></label>
+                        <input type="text" name="username" required>
+                    </div>
+                    <div class="input-line">
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" name="password" required>
+                    </div>
             
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" name="password" required>
-            
-                    <button type="submit">Login</button>
+                    <button id="submit-btn" type="submit">Login</button>
                 </form>
                 <span>
                     New here? <a href="doctor-register.html">Register</a> 
                 </span>
             </div>
             {% for message in messages %}
-                <p class="errors">{{message}}</p>
+                <p class="{{ message.tags }}">{{message}}</p>
             {% endfor %}
         </div>
         <div></div>

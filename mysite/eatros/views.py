@@ -38,6 +38,9 @@ def search_doctors(request):
         else:
             doctors = Doctor.objects.filter(specialty=specialty, area=area)
 
+        if len(doctors) == 0:
+            messages.error(request, 'There is not any ' + specialty + ' in ' + area + '.' )
+
         context = {
             'logedin' : True,
             'area' : area,

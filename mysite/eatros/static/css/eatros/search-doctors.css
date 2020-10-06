@@ -7,10 +7,11 @@
 .mini-profile {
     width: 40vw;
     margin-top: 30px;
-    padding: 0 15px;
-    box-shadow: 0 0 10px 5px rgb(110, 94, 254, .3);
+    padding: 10px 25px;
+    box-shadow: 0 0 10px 5px rgb(16, 66, 230, .3);
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .form-content {
@@ -30,7 +31,7 @@ input {
 
 #search-btn {
     height: 38px;
-    width: 100px;
+    width: 130px;
     font-size: 0.9rem;
     font-weight: bold;
     color: white;
@@ -41,8 +42,34 @@ input {
 }
 
 #search-btn:hover {
-    transition: all 0.3s ease-out;
+    transition: all 0.2s ease-out;
     background: white;
     color: #6568f4;
     transition: 250ms;
+}
+
+.book-btn {
+    height: 38px;
+    width: 170px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border: 2px solid rgb(16, 66, 230);
+    background-color:rgb(16, 66, 230);
+    border-radius: 5px;
+}
+
+.book-btn:hover {
+    transition: all 0.2s ease-out;
+    background: white;
+    color: rgb(16, 66, 230);
+    transition: 250ms;
+}
+
+.right-side-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

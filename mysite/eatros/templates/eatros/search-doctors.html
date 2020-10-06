@@ -37,17 +37,46 @@
     {% for doctor in doctors %}
         <div class="search-results">
             <div class="mini-profile">
-                <div class="left-side">
+                <div class="left-side-profile">
                     <h2>{{doctor.user.first_name}} {{doctor.user.last_name}}</h2>
-                    <h3>{{doctor.specialty}}</h3>
+                    <h3>Specialty: {{doctor.specialty}}</h3>
                 </div>
-                <div class="right-side">
-                    <h3>{{doctor.address}}</h3>
-                    <button>Book now</button>
+                <div class="right-side-profile">
+                    <h3><i class="fas fa-map-marker-alt"></i> {{doctor.address}}</h3>
+                    <button class="book-btn">Book now</button>
                 </div>
             </div>
         </div>
-
     {% endfor %}
+
+    {% for message in messages %}
+        <p class="errors">{{message}}</p>
+    {% endfor %}
+
+    <script>
+        // Find all inputs on the DOM which are bound to a datalist via their list attribute.
+        var inputs = document.querySelectorAll('input[list]');
+        for (var i = 0; i < inputs.length; i++) {
+            // When the value of the input changes…
+            inputs[i].addEventListener('change', function() {
+                var optionFound = false,
+                datalist = this.list;
+                // Determine whether an option exists with the current value of the input.
+                for (var j = 0; j < datalist.options.length; j++) {
+                    if (this.value == datalist.options[j].value) {
+                        optionFound = true;
+                        break;
+                    }
+                }
+                // use the setCustomValidity function of the Validation API
+                // to provide an user feedback if the value does not exist in the datalist
+                if (optionFound) {
+                    this.setCustomValidity('');
+                } else {
+                    this.setCustomValidity('Please select a valid value.');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
