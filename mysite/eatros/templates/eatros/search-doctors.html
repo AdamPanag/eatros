@@ -43,7 +43,7 @@
                 </div>
                 <div class="right-side-profile">
                     <h3><i class="fas fa-map-marker-alt"></i> {{doctor.address}}</h3>
-                    <button class="book-btn">Book now</button>
+                    <button class="book-btn" onclick="showCommingSoon()">Book now</button>
                 </div>
             </div>
         </div>
@@ -78,6 +78,10 @@
                     this.setCustomValidity('Please select a valid value.');
                 }
             });
+        }
+
+        function showCommingSoon() {
+            alert("Comming soon...")
         }
     </script>
 </body>
