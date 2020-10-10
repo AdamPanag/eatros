@@ -41,10 +41,15 @@ def search_doctors(request):
         if len(doctors) == 0:
             messages.error(request, 'No doctors found. Search again!')
 
+        areas = Area.objects.all()
+        specialties = Specialty.objects.all()
+
         context = {
             'logedin' : True,
             'area' : area,
             'specialty' : specialty,
+            'areas' : areas,
+            'specialties' : specialties,
             'doctors' : doctors
         }
         return render(request, 'eatros/search-doctors.html', context)
