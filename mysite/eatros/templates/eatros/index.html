@@ -35,7 +35,7 @@
                     <button id="search-btn" type="submit">Search</button>
             </form>
             {% for message in messages %}
-                <p class="errors">{{message}}</p>
+                <p class="{{ message.tags }}">{{message}}</p>
             {% endfor %}
         </div>
         <div></div>

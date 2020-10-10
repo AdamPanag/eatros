@@ -6,7 +6,7 @@
 
 .mini-profile {
     width: 40vw;
-    margin-top: 30px;
+    margin-bottom: 30px;
     padding: 10px 25px;
     box-shadow: 0 0 10px 5px rgb(16, 66, 230, .3);
     display: flex;
@@ -17,6 +17,7 @@
 .form-content {
     padding: 20px;
     background-color: rgb(183, 255, 255);
+    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,6 +28,9 @@ input {
     height: 35px;
     width: 300px;
     margin: 10px;
+    padding: 0px 10px;
+    border-radius: 5px;
+    border: 2px solid rgb(110, 94, 254);
 }
 
 #search-btn {
@@ -72,4 +76,18 @@ input {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.error-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error {
+    width: fit-content;
+    background-color: rgba(251, 14, 14, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    font-weight: bold;
 }

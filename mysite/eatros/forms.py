@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.db import transaction
-from .models import User, Doctor, Patient
+from .models import Area, User, Doctor, Patient, Specialty
 
 class PatientSignUpForm(UserCreationForm):
     first_name = forms.CharField(required=True)
@@ -26,11 +26,26 @@ class PatientSignUpForm(UserCreationForm):
         return user
 
 class DoctorSignUpForm(UserCreationForm):
+    
+    def getChoices(self):
+        if self == "area":
+            all_data = Area.objects.all()
+        elif self == "specialty":
+            all_data = Specialty.objects.all()
+
+        choices = []
+        for obj in all_data:
+            choices.append([obj.name, obj.name])
+
+        return choices
+
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
     email = forms.CharField(required=True)
-    area = forms.CharField(required=True)
-    specialty = forms.CharField(required=True)
+    choices = getChoices('area')
+    area = forms.ChoiceField(choices=choices)
+    choices = getChoices('specialty')
+    specialty = forms.ChoiceField(choices=choices)
     address = forms.CharField(required=True)
 
 
@@ -51,3 +66,5 @@ class DoctorSignUpForm(UserCreationForm):
         doctor.address=self.cleaned_data.get('address')
         doctor.save()
         return user
+
+

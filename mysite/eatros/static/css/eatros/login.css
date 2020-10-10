@@ -57,6 +57,14 @@ input {
     border: 1px solid black;
 }
 
+select {
+    height: 35px;
+    width: 240px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
 #submit-btn {
     height: 38px;
     width: 130px;

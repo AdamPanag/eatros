@@ -49,9 +49,11 @@
         </div>
     {% endfor %}
 
+    <div class="error-wrap">
     {% for message in messages %}
-        <p class="errors">{{message}}</p>
+        <p class="{{ message.tags }}">{{message}}</p>
     {% endfor %}
+    </div>
 
     <script>
         // Find all inputs on the DOM which are bound to a datalist via their list attribute.
