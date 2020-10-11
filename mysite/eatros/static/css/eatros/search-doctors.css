@@ -5,8 +5,10 @@
 }
 
 .mini-profile {
-    width: 40vw;
+    width: 500px;
     margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 10px 25px;
     box-shadow: 0 0 10px 5px rgb(16, 66, 230, .3);
     display: flex;
